@@ -1,0 +1,48 @@
+# schoen css files
+/schoen
+
+app/static/images/profile
+
+# Configuration files
+secret*
+
+# Database
+*.db
+/migrations
+*.rdb
+
+# Other
+tags
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Translations
+*.mo
+*.pot
+
+# virtualenv
+.venv
+venv/
+ENV/
+
+# IntelliJ
+.idea
+.vscode/launch.json
+.vscode/settings.json
+
+
+.DS_Store
