@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <div class="card form-auth" style="width: 18rem;">
+        <svg class="mx-auto my-3" id="icon" viewBox="0 0 32 32" width="64px" height="64px" fill="none"
+             stroke="currentcolor"
+             stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+            {% if status == 'pending' %}
+                <circle cx="16" cy="16" r="14"/>
+                <path d="M16 8 L16 16 20 20"/>
+            {% else %}
+                <path d="M2 30 L30 2 M30 30 L2 2"/>
+            {% endif %}
+
+        </svg>
+        <div class="card-body">
+            {% if status == 'pending' %}
+                <h5 class="card-title text-left float-left">{{ _('Please wait') }}</h5>
+                <p class="card-text text-left float-left">
+                    {{ _('The maintainer is checking your registration. This might take a few days.') }}</p>
+            {% else %}
+                <h5 class="card-title text-left float-left">{{ _('We are sorry') }}</h5>
+                <p class="card-text text-left float-left">
+                    {{ _('Your registration has been denied.') }}</p>
+            {% endif %}
+            <a href="#" class="card-link text-left float-left">{{ _('Contact') }}</a>
+            <a href="{{ url_for('user.settings') }}" class="card-link text-left float-left">{{ _('Settings') }}</a>
+        </div>
+        <div class="card-footer text-muted">
+            &copy; 2017-2018
+        </div>
+    </div>
+    </body>
+{% endblock %}

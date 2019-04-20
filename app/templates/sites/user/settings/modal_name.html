@@ -1,0 +1,35 @@
+<div class="modal fade" id="nameModal" tabindex="-1" role="dialog" aria-labelledby="nameModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="nameModalLabel">{{ _('Edit name') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="needs-validation" id="form-name" action="{{ url_for('user_api1.user_put', user_id=g.session.user.id) }}"
+                      method="post" novalidate>
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <div class="invalid-feedback m-1" id="feedback-other">
+                        {{ _('This did not work. Please try again later.') }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputName" class="col-form-label">{{ _('New name') }}</label>
+                        <input type="text" name="name" placeholder="Name" value="{{ g.session.user.name }}"
+                               class="form-control"
+                               required 
+                               id="inputName">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('Cancel') }}</button>
+                <button type="button" id="submitName" class="btn btn-primary">{{ _('Save') }}
+            </div>
+        </div>
+    </div>
+</div>

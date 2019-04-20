@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <form class="form-auth needs-validation" method="post" action="{{ url_for('auth.config') }}" novalidate>
+        <h1 class="h2 mb-4 font-weight-normal">{{ _('School Configuration') }}</h1>
+
+        <input type="hidden" name="next" value="{{ url_for('auth.config', stage='admin') }}">
+
+        <div class="invalid-feedback m-1" id="feedback-other">
+            {{ _('This did not work. Please try again later.') }}
+        </div>
+
+        <div class="form-group text-left">
+            <label for="inputSchoolName">{{ _('School Name') }}</label>
+            <input type="text" name="school_name" class="form-control form-control-lg" id="inputSchoolName" placeholder="{{ _('e.g. Example School') }}">
+        </div>
+
+        <div class="form-group text-left">
+            <label for="inputShortName">{{ _('Short Name') }}</label>
+            <input type="text" name="short_name" class="form-control form-control-lg" id="inputShortName" placeholder="{{ _('e.g. ES') }}">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mb-2" id="buttonSubmit" type="submit">{{ _('Next') }}</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 {{ g.config.school_name if g.config }}</p>
+    </form>
+
+    <script src="/static/js/sites/auth/config.js"></script>
+
+    </body>
+{% endblock %}

@@ -1,0 +1,133 @@
+{% extends "layout.html" %}
+{% block container %}
+    <div class="row">
+        <div class="col-lg-8 col-12">
+            <div class="card w-100 mb-4">
+                <div class="card-header bg-white p-4 d-flex flex-row">
+                    <p class="m-0 ml-2 h4">
+                        <i class="text-primary" data-feather="loader"></i>
+                        <span class="align-middle ml-2">{{ _('Upcoming') }}</span>
+                    </p>
+                </div>
+                {% if upcoming %}
+                    <div class="list-group list-group-flush">
+                        {% for event in upcomint %}
+                            {% include 'components/upcoming.html' %}
+                        {% endfor %}
+                    </div>
+                    <div class="card-footer text-center border-top-0 bg-white p-3">
+                        <a class="text-dark small text-uppercase" href="#">
+                            {{ _('Show more') }}
+                            <i height="16px" width="16px" data-feather="chevron-right"></i>
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="text-center my-5">
+                        <h3 class="display-4 text-muted mb-3">Nothing here</h3>
+                        <a class="text-muted m-5" href="#">Find a tutor</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="card w-100 mb-4">
+                <div class="card-header text-center">
+                    <p class="m-0 ml-2 h5">
+                        <i data-feather="chevron-left"></i>
+                        <span class="align-middle ml-2">{{ _('Oktober') }}</span>
+                        <i data-feather="chevron-right"></i>
+                    </p>
+                </div>
+                <div class="card-body">
+                    <table class="table text-center table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Mo</th>
+                                <th scope="col">Di</th>
+                                <th scope="col">Mi</th>
+                                <th scope="col">Do</th>
+                                <th scope="col">Fr</th>
+                                <th scope="col">Sa</th>
+                                <th scope="col">So</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-muted">31</td>
+                                <td class="text-muted">31</td>
+                                <td class="table-light">1</td>
+                                <td class="table-light">2</td>
+                                <td class="table-light">3</td>
+                                <td class="table-light">4</td>
+                                <td class="table-light">5</td>
+                            </tr>
+                            <tr>
+                                <td class="table-light">6</td>
+                                <td class="table-light">7</td>
+                                <td class="table-light">8</td>
+                                <td class="table-light">9</td>
+                                <td class="table-light">10</td>
+                                <td class="table-light"><span class="badge badge-pill badge-secondary">11</span></td>
+                                <td class="table-light">12</td>
+                            </tr>
+                            <tr>
+                                <td class="table-light">13</td>
+                                <td class="table-light">14</td>
+                                <td class="table-light">15</td>
+                                <td class="table-light">16</td>
+                                <td class="table-light">17</td>
+                                <td class="table-light">18</td>
+                                <td class="table-light">19</td>
+                            </tr>
+                            <tr>
+                                <td class="table-light">20</td>
+                                <td class="table-light">21</td>
+                                <td class="table-light">22</td>
+                                <td class="table-light">23</td>
+                                <td class="table-light">24</td>
+                                <td class="table-light">25</td>
+                                <td class="table-light">26</td>
+                            </tr>
+                            <tr>
+                                <td class="table-light">27</td>
+                                <td class="table-light">28</td>
+                                <td class="table-light">29</td>
+                                <td class="table-light">30</td>
+                                <td class="table-light">31</td>
+                                <td class="text-muted">1</td>
+                                <td class="text-muted">2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card w-100">
+                <div class="card-header bg-white p-4">
+                    <p class="m-0 ml-2 h4">
+                        <i class="text-primary" data-feather="sliders"></i>
+                        <span class="align-middle ml-2">{{ _('Settings') }}</span>
+                    </p>
+                </div>
+                
+                <ul class="list-group list-group-flush">
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="user"></i>
+                        <span class="align-middle">{{ _('Profile') }}</span>
+                    </a>
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="book"></i>
+                        <span class="align-middle">{{ _('Subjects') }}</span>
+                    </a>
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="calendar"></i>
+                        <span class="align-middle">{{ _('Sessions') }}</span>
+                    </a>
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="book-open"></i>
+                        <span class="align-middle">{{ _('Exams') }}</span>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

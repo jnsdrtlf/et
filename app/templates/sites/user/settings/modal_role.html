@@ -1,0 +1,40 @@
+<div class="modal fade" id="roleModal" tabindex="-1" role="dialog" aria-labelledby="roleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="roleModalLabel">{{ _('Change role') }}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning" role="alert">
+                    {{
+                    _('Changing your role will make your account inaccessible until your teacher accepted your new role. You will still be able to change the role while waiting, however this might also take a while.')
+                    }}
+                </div>
+                <form id="form-role" action="{{ url_for('user_api1.user_put', user_id=g.session.user.id) }}"
+                      method="post">
+                    <input type="hidden" name="_method" value="PUT">
+
+                    <div class="invalid-feedback m-1" id="feedback-other">
+                        {{ _('This did not work. Please try again later.') }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputName" class="col-form-label">{{ _('Role') }}</label>
+                        <select class="custom-select" name="role">
+                            <option value="student">{{ _('Student') }}</option>
+                            <option value="teacher">{{ _('Teacher') }}</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ _('Cancel') }}</button>
+                <button type="button" id="submitRole" class="btn btn-primary">{{ _('Save') }}
+            </div>
+        </div>
+    </div>
+</div>

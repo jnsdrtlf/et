@@ -1,0 +1,94 @@
+<div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+    <h1 class="mb-4">{{ _('Profile') }}</h1>
+    <div class="row">
+        <div class="col-md-3 d-flex align-items-center flex-column">
+            <img src="{{ g.session.user.picture }}" class="rounded-circle" alt="{{ g.session.user.name }}"
+                 style="max-width: 200px; width: 100%">
+            <!--<a href="#" class="mt-3">{{ _('Change or remove') }}</a>-->
+        </div>
+        <div class="col-md-9">
+            <h3 class="display-4">{{ g.session.user.name }}</h3>
+            <a href="#" data-toggle="modal" data-target="#nameModal">{{ _('Edit name') }}</a>
+
+            <div class="row align-items-center my-4">
+                <div class="col-2 col-md-1 my-3">
+                    <svg id="i-flag" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M2 26 L30 26 30 6 2 6 Z M2 6 L16 16 30 6"></path>
+                    </svg>
+                </div>
+                <div class="col-10 col-sm-11">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ g.session.user.email }}
+                            <br>
+                            <small class="text-muted">{{ _('Status:') }}</small>
+                            {% if not g.session.user.email_confirmed %}
+                                <small class="text-danger">{{ _('Verification required') }}</small>
+                            {% else %}
+                                <small class="text-success">{{ _('Verified') }}</small>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="#" data-toggle="modal" data-target="#emailModal">{{ _('Edit Email address') }}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-md-1 my-3">
+                    <svg id="i-flag" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <path d="M6 2 L6 30 M6 6 L26 6 20 12 26 18 6 18"></path>
+                    </svg>
+                </div>
+                <div class="col-10 col-sm-11">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            {{ _(g.session.user.role.value) }}
+                            <br>
+                            <small class="text-muted">{{ _('Status:') }}</small>
+                            {% if g.session.user.status.value == 'accepted' %}
+                                <small class="text-success">{{ _('Accepted') }}</small>
+                            {% elif g.session.user.status.value == 'pending' %}
+                                <small class="text-danger">{{ _('Pending') }}</small>
+                            {% elif g.session.user.status.value == 'rejected' %}
+                                <small class="text-danger">{{ _('Rejected') }}</small>
+                            {% endif %}
+                        </div>
+                        <div class="col-sm-6">
+                            {% if g.session.user.role.value == 'student'
+                                    or g.session.user.role.value == 'teacher'
+                                    or not g.session.user.status.value == 'accepted' %}
+                                <a href="#" data-toggle="modal" data-target="#roleModal">{{ _('Change role') }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-md-1 my-3">
+                    <svg id="i-flag" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor"
+                         stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <circle cx="16" cy="11" r="4"></circle>
+                        <path d="M24 15 C21 22 16 30 16 30 16 30 11 22 8 15 5 8 10 2 16 2 22 2 27 8 24 15 Z"></path>
+                    </svg>
+                </div>
+                <div class="col-10 col-sm-11">
+                    <div class="row">
+                        <div class="col-sm-6">{{ _(g.session.user.locale.value) }}</div>
+                        <div class="col-sm-6">
+                            <a href="#" data-toggle="modal" data-target="#langModal">{{ _('Change language') }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'sites/user/settings/modal_name.html' %}
+{% include 'sites/user/settings/modal_email.html' %}
+{% if g.session.user.role.value == 'student'
+        or g.session.user.role.value == 'teacher'
+        or not g.session.user.status.value == 'accepted' %}
+    {% include 'sites/user/settings/modal_role.html' %}
+{% endif %}
+{% include 'sites/user/settings/modal_language.html' %}
+<script src="/static/js/sites/user/settings/modals.js"></script>

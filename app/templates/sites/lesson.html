@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+{% block container %}
+    <div class="row">
+        <div class="col">
+            <div class="d-flex flex-row align-items-center">
+                <h3>{{ _('Lesson %(num)d', num=lesson.time.identifier) }}</h3>
+                {% if g.session.user_id == lesson.tutor_id %}
+                    <a href="{{ url_for('index.lesson', lesson_id=lesson.id, remove=True) }}" class="text-small text-danger ml-3">{{ _('Remove') }}</a>
+                {% endif %}
+            </div>
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row mt-4">
+                    <i class="mr-3" data-feather="life-buoy"></i>
+                    <span>{{ _('Status:') }}</span>
+                    {% if not lesson.available %}
+                        <span class="ml-2 text-danger">{{ _('Full') }}</span>
+                        {% if g.session.user in lesson.students %}
+                            <a href="{{ url_for('index.lesson', lesson_id=lesson.id, signout=True) }}" class="ml-2">
+                                {{ _('Sign out from lesson') }}
+                            </a>
+                        {% endif %}
+                    {% else %}
+                        <span class="ml-2 text-success">{{ _('Free') }}</span>
+                        {% if lesson.tutor_id != g.session.user_id %}
+                            <a href="{{ url_for('index.lesson', lesson_id=lesson.id, signup=True) }}" class="ml-2">
+                                {{ _('Sign up for lesson') }}
+                            </a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                {% if lesson.tutor.subjects %}
+                    <div class="d-flex flex-row mt-4">
+                        <i class="mr-3" data-feather="book"></i>
+                        {% for subject in lesson.tutor.subjects %}
+                            <a href="{{ url_for('index.subject', subject_id=subject.id) }}" class="text-dark mr-2">{{ subject.name }}</a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="d-flex flex-row mt-4">
+                    <i class="mr-3" data-feather="users"></i>
+                    <div class="d-flex flex-column">
+                        <div class="d-flex flex-row align-items-center">
+                            <span>
+                                <img src="{{ lesson.tutor.picture }}" data-toggle="tooltip" data-placement="bottom" title="{{ lesson.tutor.name }}" class="rounded-circle mr-2" alt="{{ lesson.tutor.name }}" width="30px" height="30px">
+                                <b>{{ lesson.tutor.name }}</b>
+                            </span>
+                            <small class="test-muted ml-2">{{ _('(Teacher)') }}</small>
+                        </div>
+                        {% for student in lesson.students %}
+                            <div class="d-flex align-items-center flex-row mt-2">
+                                <span>
+                                    <img src="{{ student.picture }}" data-toggle="tooltip" data-placement="bottom" title="{{ student.name }}" class="rounded-circle mr-2" alt="{{ student.name }}" width="30px" height="30px">
+                                    <b>{{ student.name }}</b>
+                                </span>
+                                <small class="test-muted ml-2">{{ _('(Student)') }}</small>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

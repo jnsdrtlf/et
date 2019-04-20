@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <form class="form-auth needs-validation" method="post" action="{{ url_for('auth.config') }}" novalidate>
+        <h1 class="h2 mb-4 font-weight-normal">{{ _('Grades') }}</h1>
+
+        <div class="invalid-feedback m-1" id="feedback-other">
+            {{ _('This did not work. Please try again later.') }}
+        </div>
+
+        <div class="text-right mb-4">
+            <div id="gradeList">
+                <div class="input-group mb-1 grade-group">
+                    <input type="text" required name="grade" class="form-control" placeholder="{{ _('Grade') }}" aria-label="{{ _('Grade') }}">
+                    <div class="input-group-append">
+                        <button class="btn btn-danger remove" type="button" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <a class="text-dark" onclick="addGrade()" href="#">
+                <i height="16px" width="16px" data-feather="plus-circle"></i>
+                {{ _('Add') }}
+            </a>
+        </div>
+        
+
+        <button class="btn btn-lg btn-primary btn-block mb-2" id="buttonSubmit" type="submit">{{ _('Next') }}</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 {{ g.school.school_name }}</p>
+    </form>
+
+    <script src="/static/js/sites/auth/config-grade.js"></script>
+    <script>
+        feather.replace()
+    </script>
+
+    </body>
+{% endblock %}

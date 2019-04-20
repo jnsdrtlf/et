@@ -1,0 +1,95 @@
+<nav class="navbar sticky-top shadow-sm border-bottom navbar-light bg-white py-0 px-sm-0">
+    <a class="d-sm-none" data-toggle="collapse" data-target="#navbarToggle"
+        aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <i data-feather="menu"></i>
+    </a>
+    <div class="mx-auto d-sm-none py-2">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">
+                    <small>
+                    {{ title }} <span class="sr-only">{{ _('(current)') }}</span>
+                    </small>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <a class="navbar-brand d-sm-block d-none col-3 col-lg-2 px-3 py-3" href="{{ url_for('index.index') }}">
+        <i data-feather="life-buoy" width="30" height="30" class="d-inline-block align-top mx-3"></i>
+        E.T.
+    </a>
+    <a class="d-md-none ml-sm-auto mr-3" data-toggle="collapse" data-target="#searchCollapse"
+        aria-controls="search" aria-expanded="false" aria-label="Toggle navigation">
+        <i data-feather="search"></i>
+    </a>
+    
+    <form action="{{ url_for('index.search') }}" method="get" class="d-none d-md-block w-auto flex-fill mx-3" id="search">
+        <input class="form-control bg-light border-0" name="query" placeholder="{{ _('Search for users or subjects') }}" aria-label="{{ _('Search for users or subjects') }}" type="text">
+    </form>    
+
+    <div class="collapse navbar-collapse pb-2" id="navbarToggle">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{{ url_for('index.index') }}">
+                {{ _('Dashboard') }}
+            </a>
+            <a class="nav-item nav-link" href="{{ url_for('index.discover') }}">
+                {{ _('Find Tutor') }}
+            </a>
+            <a class="nav-item nav-link" href="{{ url_for('index.calendar') }}">
+                {{ _('Calendar') }}
+            </a>
+            <a class="nav-item nav-link" href="{{ url_for('index.report') }}">
+                {{ _('Report') }}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-item nav-link"
+                href="{{ url_for('user.profile', user_id=g.session.user.id) }}">
+                {{ _('Profile') }}
+            </a>
+            <a class="nav-item nav-link" href="{{ url_for('user.settings') }}">
+                {{ _('Settings') }}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-item nav-link" href="#">
+                {{ _('Help') }}
+            </a>
+            <a class="nav-item nav-link" href="#">
+                {{ _('Contact') }}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-item nav-link" href="{{ url_for('auth.logout') }}">
+                {{ _('Logout') }}
+            </a>
+        </div>
+    </div>
+    <div class="dropdown d-none d-sm-block">
+        <a class="d-inline-block border-left pl-3 py-3" id="dropdownAccountToggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img src="{{ g.session.user.picture }}" class="rounded-circle ml-2" alt="{{ g.session.user.name }}" width="30px" height="30px">
+            <small class="d-inline-block align-center mx-3" >{{ g.session.user.name }}</small>
+            <i class="d-inline-block align-center mx-3" width="16px" height="16px" data-feather="chevron-down"></i>
+        </a>
+        <div class="dropdown-menu dropdown-menu-right shadow-sm rounded-0 border-top w-100 mt-0" aria-labelledby="dropdownAccountToggle">
+            <a class="dropdown-item" href="{{ url_for('user.profile', user_id=g.session.user.id) }}">
+                {{ _('Profile') }}
+            </a>
+            <a class="dropdown-item" href="{{ url_for('user.settings') }}">
+                {{ _('Settings') }}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ url_for('index.index') }}">
+                {{ _('Help') }}
+            </a>
+            <a class="dropdown-item" href="{{ url_for('index.index') }}">
+                {{ _('Contact') }}
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{{ url_for('auth.logout') }}">
+                {{ _('Logout') }}
+            </a>
+        </div>
+    </div>
+
+    <form action="{{ url_for('index.search') }}" method="get" class="collapse navbar-collapse w-100 mx-3" id="searchCollapse">
+        <input class="form-control bg-light border-0 my-3" name="query" placeholder="{{ _('Search for users or subjects') }}" aria-label="{{ _('Search for users or subjects') }}" type="text">
+    </form>   
+</nav>

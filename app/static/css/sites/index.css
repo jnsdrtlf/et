@@ -1,0 +1,4 @@
+nav > .dropdown > a:hover {
+    cursor: pointer;
+    background: #f8f9fa;
+}

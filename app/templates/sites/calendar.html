@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block head %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+{% endblock %}
+{% block container %}
+    <div id="test"></div>
+    <script type="text/javascript" src="/static/js/sites/index/cal.js"></script>
+
+{% endblock %}

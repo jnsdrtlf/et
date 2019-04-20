@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <form class="form-auth needs-validation" method="post" action="{{ url_for('auth.config') }}" novalidate>
+        <h1 class="h2 mb-4 font-weight-normal">{{ _('Setup Admin Account') }}</h1>
+
+        <div class="invalid-feedback m-1" id="feedback-other">
+            {{ _('This did not work. Please try again later.') }}
+        </div>
+
+        <div class="form-group text-left">
+            <label for="inputPassword" class="sr-only">{{ _('Name') }}</label>
+            <input type="text" name="name" class="form-control form-first" id="inputName" placeholder="{{ _('Name') }}">
+
+            <label for="inputEmail" class="sr-only">{{ _('Email') }}</label>
+            <input type="email" name="email" class="form-control form-last" id="inputEmail" placeholder="{{ _('Email') }}">
+        </div>
+        
+        <div class="form-group text-left">
+            <label for="inputPassword" class="sr-only">{{ _('Password') }}</label>
+            <input name="password" type="password" id="inputPassword" class="form-control form-first"
+                   placeholder="{{ _('Password') }}" required>
+
+            <label for="inputPasswordRpt" class="sr-only">{{ _('Repeat password') }}</label>
+            <input name="password-rpt" type="password" id="inputPasswordRpt" class="form-control form-last"
+                   placeholder="{{ _('Repeat password') }}">
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mb-2" id="buttonSubmit" type="submit">{{ _('Next') }}</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 {{ g.config.school_name if g.config }}</p>
+    </form>
+
+    <script src="/static/js/sites/auth/config.js"></script>
+
+    </body>
+{% endblock %}

@@ -1,0 +1,47 @@
+<a data-id="1" href="{{ url_for('index.lesson', lesson_id=event.lesson.id) }}" class="list-group-item list-group-item-action">
+    <div class="row p-sm-2">
+        <div class="col-4 col-sm-3 border-right p-0">
+            <div class="d-flex flex-column text-center">
+                <small class="text-muted small text-uppercase">{{ event.weekday }}</small>
+                <p class="display-4">
+                    {{ event.date.day }}
+                </p>
+            </div>
+        </div>
+        <div class="col-8 col-sm-9 flex-fill pr-0 pr-sm-2 pl-3 pl-sm-4">
+            <div class="d-flex flex-column">
+                <h5>{% for subject in event.lesson.tutor.subjects %}
+                    {{ subject.name }}
+                {% endfor %}</h5>
+                <div class="text-muted small align-text-bottom d-flex flex-column flex-sm-row">
+                    <span>
+                        <i height="14px" class="my-auto" data-feather="clock"></i>
+                        <span class="align-middle">{{ _('Lesson %(num)d', num=event.lesson.time.identifier) }}</span>
+                    </span>
+                    <span class="my-2 ml-sm-2 mt-sm-0">
+                        <i height="14px" data-feather="map-pin"></i>
+                        <span class="align-middle">{{ g.school.school_name }}</span>
+                    </span>
+                </div>
+                <div class="mt-2 d-sm-block d-none">
+                    <img src="{{ event.lesson.tutor.picture }}" data-toggle="tooltip" data-placement="bottom" title="{{ event.lesson.tutor.name }}" class="rounded-circle" alt="{{ event.lesson.tutor.name }}" width="30px" height="30px">
+                </div>
+            </div>
+        </div>
+        <div class="col justify-content-between d-flex flex-row mt-2 px-1 px-sm-4">
+            <div class="btn-group btn-group-toggle ml-auto flex-fill" data-toggle="buttons" role="group" aria-label="Basic example">
+                <label class="btn btn-sm btn-outline-dark flex-fill">
+                    <input type="radio" name="options" id="coming" autocomplete="off">
+                    <i height="16px" data-feather="check"></i>
+                    <span class="align-middle">{{ _('Coming') }}</span>
+                </label>
+                <label class="btn btn-sm btn-outline-dark flex-fill">
+                    <input type="radio" name="options" id="notComing" autocomplete="off">
+                    <i height="16px" data-feather="x"></i>
+                    <span class="align-middle">{{ _('Not Coming') }}</span>
+                </label>
+            </div>
+            
+        </div>
+    </div>
+</a>

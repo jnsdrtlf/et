@@ -1,0 +1,50 @@
+{% set green = True %}
+{% extends "layout.html" %}
+{% block container %}
+    <div class="row">
+        <div class="col-9">
+            <h3>{{ user.name }}</h3>
+            <div class="d-flex flex-column">
+                <div class="d-flex flex-row mt-4">
+                    <i class="mr-3" data-feather="flag"></i>
+                    {{ _(user.role.value) }}
+                </div>
+                {% if user.role.value == 'tutor' and user.status.value == 'accepted' %}
+                    {% if user.subjects %}
+                        <div class="d-flex flex-row mt-4">
+                            <i class="mr-3" data-feather="book"></i>
+                            {% for subject in user.subjects %}
+                                <a href="{{ url_for('index.subject', subject_id=subject.id) }}" class="text-dark mr-2">{{ subject.name }}</a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    <div class="d-flex flex-row mt-4">
+                        <i class="mr-3" data-feather="calendar"></i>
+                        <div class="text-muted">
+                            {% for weekday in weekdays %}
+                                {% if weekday.available %}
+                                    <span class="dropdown">
+                                        <a class="mr-2 text-primary" href="#" role="button" id="dropdownMenuLink{{ weekday.name }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{ weekday.name }}
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink{{ weekday.name }}">
+                                            {% for lesson in weekday.lessons %}
+                                                <a class="dropdown-item" href="{{ url_for('index.lesson', lesson_id=lesson.id) }}">{{ _('Lesson %(num)d', num=lesson.time.identifier) }}</a>
+                                            {% endfor %}
+                                        </div>
+                                    </span>
+                                {% else %}
+                                    <span class="mr-2">{{ weekday.name }}</span>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-3 d-flex align-items-center flex-column">
+            <img src="{{ user.picture }}" class="rounded" alt="{{ user.name }}"
+            style="max-width: 200px; width: 100%">
+        </div>
+    </div>
+{% endblock %}

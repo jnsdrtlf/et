@@ -1,0 +1,20 @@
+pillow
+werkzeug
+aenum
+flask
+
+# Database
+sqlalchemy
+flask-sqlalchemy
+flask_marshmallow
+marshmallow-sqlalchemy
+
+redis
+huey
+gevent  # used for greenlet workers
+bcrypt
+
+flask-mail
+Flask-Moment
+flask-limiter
+Flask-Babel

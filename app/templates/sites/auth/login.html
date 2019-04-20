@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <form class="form-auth needs-validation" method="post" action="{{ url_for('session_api1.session_post') }}" novalidate>
+        <h1 class="h2 mb-4 font-weight-normal">{{ _('Welcome') }}</h1>
+
+        <div class="invalid-feedback m-1" id="feedback">
+            {{ _('Email or password incorrect') }}
+        </div>
+
+        <label for="inputEmail" class="sr-only">{{ _('Email address') }}</label>
+        <input name="email" type="email" id="inputEmail" class="form-control form-first" placeholder="{{ _('Email address') }}"
+               required autofocus>
+
+        <label for="inputPassword" class="sr-only">{{ _('Password') }}</label>
+        <input name="password" type="password" id="inputPassword" class="form-control form-last" placeholder="{{ _('Password') }}"
+               required>
+        <small id="passwordHelp" class="form-text text-muted">
+            <a href="{{ url_for('auth.reset_get') }}">
+                {{ _('Forgot your password?') }}
+            </a>
+        </small>
+
+        <div class="custom-control custom-checkbox mb-3 mt-2">
+            <input type="checkbox" name="remember" class="custom-control-input" id="rememberCheck" checked
+                   aria-checked="true">
+            <label class="custom-control-label" for="rememberCheck">{{ _('Remember me') }}</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mb-2" type="submit">{{ _('Login') }}</button>
+        <p class="mt-2">{{ _('No account?') }} <a href="{{ url_for('auth.signup_get') }}">{{ _('Sign Up') }}</a></p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 {{ g.config.school_name if g.config }}</p>
+    </form>
+
+    <script src="/static/js/sites/auth/login.js"></script>
+
+    </body>
+{% endblock %}

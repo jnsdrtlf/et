@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+{% block head %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+{% endblock %}
+{% block container %}
+    <div class="row">
+        <div class="col-lg-8 col-12">
+            <div class="card w-100 mb-4">
+                <div class="card-header bg-white p-4 d-flex flex-row">
+                    <p class="m-0 ml-2 h4">
+                        <i class="text-primary" data-feather="loader"></i>
+                        <span class="align-middle ml-2">{{ _('Upcoming') }}</span>
+                    </p>
+                </div>
+                {% if upcoming %}
+                    <div class="list-group list-group-flush">
+                        {% for event in upcoming|sort(attribute='date') %}
+                            {% include 'components/upcoming.html' %}
+                        {% endfor %}
+                    </div>
+                    <div class="card-footer text-center border-top-0 bg-white p-3">
+                        <a class="text-dark small text-uppercase" href="#">
+                            {{ _('Show more') }}
+                            <i height="16px" width="16px" data-feather="chevron-right"></i>
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="text-center my-5">
+                        <h3 class="display-4 text-muted mb-3">{{ _('Nothing found') }}</h3>
+                        <a class="text-muted m-5" href="{{ url_for('index.discover') }}">{{ _('Find Tutor') }}</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="card w-100 mb-4">
+                <div class="card-header text-center">
+                    <p class="m-0 ml-2 h5 d-flex flex-row">
+                        <i onclick="prev();" data-feather="chevron-left"></i>
+                        <span class="align-middle flex-fill" id="month"></span>
+                        <i onclick="next();" data-feather="chevron-right"></i>
+                    </p>
+                </div>
+                <div class="card-body">
+                    <a href="#" class="text-dark" onclick="today();">{{ _('Today') }}</a>
+                    <span class="float-right" id="year"></span>
+                    <div data-year="" data-month="" id="cal"></div>
+                </div>
+            </div>
+            <div class="card w-100 mb-4">
+                <div class="card-header bg-white p-4">
+                    <p class="m-0 ml-2 h4">
+                        <i class="text-primary" data-feather="sliders"></i>
+                        <span class="align-middle ml-2">{{ _('Settings') }}</span>
+                    </p>
+                </div>
+                
+                <ul class="list-group list-group-flush">
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="user"></i>
+                        <span class="align-middle">{{ _('Profile') }}</span>
+                    </a>
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="book"></i>
+                        <span class="align-middle">{{ _('Subjects') }}</span>
+                    </a>
+                    <a href="{{ url_for('user.lessons') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="calendar"></i>
+                        <span class="align-middle">{{ _('Lessons') }}</span>
+                    </a>
+                    <a href="{{ url_for('user.settings') }}" class="list-group-item list-group-item-action">
+                        <i height="20px" data-feather="book-open"></i>
+                        <span class="align-middle">{{ _('Exams') }}</span>
+                    </a>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/sites/index/cal.js"></script>
+    <script type="text/javascript">
+        var lessons = new Array(7);
+        $(document).ready(function() {
+            $.get("{{ url_for('lesson_api1.get_lesson_by_user', user_id=g.session.user_id) }}")
+                .done(function(data) {
+                    for (let i = 0; i < lessons.length; i++) {
+                        lessons[i] = new Array();
+                    }
+                    for (s in data) {
+                        let index = data[s].weekday + 1;
+                        if (index == 7) index = 0;
+                        lessons[index].push({
+                            title: `{{ _('Lesson %(num)s', num='${data[s].time.identifier}') }}`,
+                            url: '{{ url_for("index.lesson", lesson_id=0) }}' + data[s].id
+                        });
+                    }
+                })
+                .always(function() {
+                    today();
+                });
+        });
+
+        function setUpCal(date) {
+            _date = moment(date);
+            $('#month').text(_date.format('MMMM'));
+            $('#year').text(_date.format('YYYY'));
+            $('#cal').data('month', _date.month())
+                .data('year', _date.year());
+
+            createCalendar({
+                size: 'small',
+                container: '#cal',
+                date: _date,
+                sessions: lessons
+            });
+        }
+        function next() {
+            var cal = $('#cal');
+            setUpCal(new Date(cal.data('year'), cal.data('month') + 1));
+        }
+        function prev() {
+            var cal = $('#cal');
+            setUpCal(new Date(cal.data('year'), cal.data('month') - 1));
+        }
+        function today() {
+            setUpCal(new Date());
+        }
+    </script>
+{% endblock %}

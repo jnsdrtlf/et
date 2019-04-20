@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    {% include 'components/navbar.html' %}
+    <div class="row m-0" style="min-height: calc(100vh - 64px)">
+        <div class="col-3 col-lg-2 d-none d-sm-block h-100 px-0" style="top:0; bottom:0;">
+            <p class="text-muted small text-uppercase ml-3 mt-3 mb-1">
+                <b>{{ _('Menu') }}</b>
+            </p>
+            <div class="list-group list-group-flush">
+                <a href="{{ url_for('index.index') }}" class="list-group-item list-group-item-action border-top-0 border-bottom-0
+                    {{ 'font-weight-bold bg-light border-left border-primary' if request.endpoint == 'index.index' }}">
+                    {{ _('Dashboard') }}
+                </a>
+                <a href="{{ url_for('index.discover') }}" class="list-group-item list-group-item-action border-top-0 border-bottom-0
+                    {{ 'font-weight-bold bg-light border-left border-primary' if request.endpoint == 'index.discover' }}">
+                    {{ _('Find Tutor') }}
+                </a>
+                <a href="{{ url_for('index.calendar') }}" class="list-group-item list-group-item-action border-top-0 border-bottom-0
+                    {{ 'font-weight-bold bg-light border-left border-primary' if request.endpoint == 'index.calendar' }}">
+                    {{ _('Calendar') }}
+                </a>
+                <a href="{{ url_for('index.report') }}" class="list-group-item list-group-item-action border-top-0 border-bottom-0
+                    {{ 'font-weight-bold bg-light border-left border-primary' if request.endpoint == 'index.report' }}">
+                    {{ _('Report') }}
+                </a>
+            </div>
+        </div>
+        <div class="col-sm-9 col-lg-10 d-flex flex-column bg-light justify-content-between border-left">
+            <div class="container px-0 px-sm-3 mt-2 mt-sm-4">
+                {% block container %}{% endblock %}
+            </div>
+            {% include 'components/footer.html' %}
+        </div>
+    </div>
+{% endblock %}

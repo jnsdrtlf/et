@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block container %}
+    <div class="d-flex flex-column mr-2 mb-4">
+        {% if g.session.user.role.value == 'tutor' %}
+            <a href="{{ url_for('user.add_lesson') }}" class="my-2 mb-0 list-group-item border-0 rounded ">
+                <div class="d-flex align-items-center flex-row align-middle">
+                    <i data-feather="plus-circle"></i>
+                    <div class="ml-2 flex-fill">{{ _('Add Lesson') }}</div>
+                </div>
+            </a>
+        {% endif %}
+        {% for weekday in weekdays %}
+            {% if weekday.available %}
+                <div class="d-flex flex-column">
+                    <p class="text-muted small text-uppercase ml-3 mt-3 mb-1">
+                        <b>{{ weekday.name }}</b>
+                    </p>
+                    <div class="list-group list-group-flush w-100 mx-2 mx-sm-3">
+                        {% if weekday.lessons %}
+                            {% for lesson in weekday.lessons %}
+                                <a href="{{ url_for('index.lesson', lesson_id=lesson.id) }}"
+                                    class="my-2 mb-0 list-group-item list-group-item-action border-0 rounded shadow">
+                                    <div class="d-flex align-items-center flex-row align-middle">
+                                        <i data-feather="calendar" height="20px" height="20px"></i>
+                                        <div class="ml-2 flex-fill">{{ _('Lesson %(num)d', num=lesson.time.identifier) }}</div>
+                                        <i data-feather="chevron-right"></i>
+                                    </div>
+                                </a>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}

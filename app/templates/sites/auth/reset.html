@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <form class="form-auth needs-validation" method="post" action="{{ url_for('auth.reset_post') }}" novalidate>
+        <h1 class="h2 mb-4 font-weight-normal">Passwort zurücksetzen</h1>
+
+        <div class="invalid-feedback m-1" id="feedback-email">
+            {{ _('Email does not exist') }}
+        </div>
+
+        <div class="invalid-feedback m-1" id="feedback-password">
+            {{ _('Password must have at least 8 characters') }}
+        </div>
+
+        <div class="invalid-feedback m-1" id="feedback-token">
+            {{ _('Your token has expired. Try again') }}
+        </div>
+
+        {% if email %}
+            <input type="hidden" name="form" value="email">
+            <label for="inputEmail" class="sr-only">{{ _('Email address') }}</label>
+            <input name="email" type="email" id="inputEmail" class="form-control" placeholder="{{ _('Email address') }}"
+                   required autofocus>
+        {% elif password %}
+            <input type="hidden" name="form" value="password">
+            <input type="hidden" name="token" value="{{ password_token }}">
+            <label for="inputPassword" class="sr-only">{{ _('New password') }}</label>
+            <input name="password" type="password" id="inputPassword" class="form-control form-first"
+                   placeholder="{{ _('New password') }}" required>
+
+            <label for="inputPasswordRpt" class="sr-only">{{ _('Repeat password') }}</label>
+            <input name="password-rpt" type="password" id="inputPasswordRpt" class="form-control form-last"
+                   placeholder="{{ _('Repeat password') }}">
+        {% endif %}
+
+        <button class="btn btn-lg btn-primary btn-block mt-4" type="submit">{{ _('Reset') }}</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    </form>
+    <script src="/static/js/sites/auth/reset.js"></script>
+    </body>
+{% endblock %}

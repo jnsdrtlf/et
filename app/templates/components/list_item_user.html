@@ -1,0 +1,22 @@
+<a href="{{ url_for('user.profile', user_id=user.id) }}" class="my-2 mb-0 list-group-item list-group-item-action border-0 rounded shadow">
+    <div class="d-flex align-items-center flex-row">
+        <img src="{{ user.picture }}" class="rounded-circle" alt="{{ user.name }}" width="30px" height="30px">
+        <div class="ml-2">{{ user.name }}</div>
+        {% if user.role.value == 'teacher' %}
+            <div class="ml-4 text-muted small">
+                {% for subject in user.subjects %}
+                    <span class="ml-2">{{ subject.name }}</span>
+                {% endfor %}
+                
+                {% for weekday in user.weekdays %}
+                    {% if weekday.available %}
+                        <span class="ml-2 text-primary">{{ weekday.name }}</span>
+                    {% else %}
+                        <span class="ml-2">{{ weekday.name }}</span>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <i class="ml-auto" data-feather="chevron-right"></i>
+    </div>
+</a>

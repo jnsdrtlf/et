@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <form class="form-auth needs-validation" method="post" action="{{ url_for('user_api1.user_post') }}" novalidate>
+        <h1 class="h2 mb-4 font-weight-normal">{{ _('Sign Up') }}</h1>
+
+        <div class="invalid-feedback m-1" id="feedback-email">
+            {{ _('Email already exists') }}
+        </div>
+
+        <div class="invalid-feedback m-1" id="feedback-password">
+            {{ _('Password must have at least 8 characters') }}
+        </div>
+
+        <div class="invalid-feedback m-1" id="feedback-other">
+            {{ _('This did not work. Please try again later.') }}
+        </div>
+
+        <input type="hidden" name="login" value="1">
+
+        <label for="inputName" class="sr-only">{{ _('Name') }}</label>
+        <input name="name" type="text" id="inputName" class="form-control form-first" placeholder="{{ _('Name') }}" required
+               autofocus>
+
+        <label for="inputEmail" class="sr-only">{{ _('Email address') }}</label>
+        <input name="email" type="email" id="inputEmail" class="form-control form-no-radius" placeholder="{{ _('Email address') }}"
+               required>
+
+        <label for="inputPassword" class="sr-only">{{ _('Password') }}</label>
+        <input name="password" type="password" id="inputPassword" class="form-control form-no-radius"
+               placeholder="{{ _('Password') }}" required>
+
+        <label for="inputPasswordRpt" class="sr-only">{{ _('Repeat password') }}</label>
+        <input name="password-rpt" type="password" id="inputPasswordRpt" class="form-control form-no-radius"
+               placeholder="{{ _('Repeat password') }}">
+
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="width: 100%;">
+            <label class="btn btn-outline-dark">
+                <input type="radio" name="role" id="inputStudent" value="student" autocomplete="on" required checked>
+                {{ _('Student') }}
+            </label>
+            <label class="btn btn-outline-dark">
+                <input type="radio" name="role" id="inputTeacher" value="tutor" autocomplete="off">
+                {{ _('Teacher') }}
+            </label>
+        </div>
+
+        <div class="custom-control custom-checkbox mb-3 mt-2">
+            <input type="checkbox" name="accept" class="custom-control-input" id="acceptCheck" required>
+            <label class="custom-control-label" for="acceptCheck">{{ _('I accept the terms and conditions') }}</label>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block mb-2" id="buttonSubmit" type="submit">{{ _('Sign Up') }}</button>
+        <a class="mt-2" href="{{ url_for('auth.login_get') }}">{{ _('Already have an account?') }}</a>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018 {{ g.config.school_name if g.config }}</p>
+    </form>
+
+    <script src="/static/js/sites/auth/signup.js"></script>
+
+    </body>
+{% endblock %}

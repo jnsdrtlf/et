@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block container %}
+    <form id="subjectForm" action="{{ url_for('user_api1.teacher_get') }}" method="get">
+        {% for subject in subjects %}
+            <button data-id="{{ subject.id }}" type="button" class="btn btn-sm btn-outline-dark mb-2" data-toggle="button" aria-pressed="false" autocomplete="off">
+                {{ subject.name }}
+            </button>
+        {% endfor %}
+    </form>
+    <div class="d-flex flex-column">
+        <p class="text-muted small text-uppercase mt-3 mb-1">
+            <b>{{ _('Users') }}</b>
+        </p>
+        <div class="list-group list-group-flush w-100">
+            
+            <div id="container"></div>
+                
+            <div id="notFound" class="my-2 mb-0 list-group-item border-0 rounded">
+                <div class="d-flex align-items-center flex-row align-middle">
+                    <i data-feather="help-circle"></i>
+                    <div class="ml-2 flex-fill">{{ _('Nothing found') }}</div>
+                </div>
+            </div>
+                
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/sites/index/discover.js"></script>
+{% endblock %}

@@ -1,0 +1,39 @@
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md">
+            <a class="navbar-brand text-muted" href="{{ url_for('index.index') }}">
+                <i data-feather="life-buoy" width="30" height="30" class="d-inline-block align-top"></i>
+                E.T.
+            </a>
+            <small class="d-block mb-3 text-muted">&copy; 2018 {{ g.config.school_name if g.config }}</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>{{ _('Navigation') }}</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="{{ url_for('index.index') }}">{{ _('Dashboard') }}</a></li>
+                <li><a class="text-muted" href="{{ url_for('index.discover') }}">{{ _('Find Tutor') }}</a></li>
+                <li><a class="text-muted" href="{{ url_for('index.calendar') }}">{{ _('Calendar') }}</a></li>
+                <li><a class="text-muted" href="{{ url_for('index.report') }}">{{ _('Report') }}</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>{{ _('Account') }}</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="{{ url_for('user.profile', user_id=g.session.user.id) }}">
+                    {{ _('Profile') }}
+                </a></li>
+                <li><a class="text-muted" href="{{ url_for('user.settings') }}">{{ _('Settings') }}</a></li>
+                <li><a class="text-muted" href="{{ url_for('auth.logout') }}">{{ _('Logout') }}</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>{{ _('About') }}</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">{{ _('Imprint') }}</a></li>
+                <li><a class="text-muted" href="#">{{ _('Help') }}</a></li>
+                <li><a class="text-muted" href="#">{{ _('Contact') }}</a></li>
+                <li><a class="text-muted" href="#">{{ _('Terms') }}</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>

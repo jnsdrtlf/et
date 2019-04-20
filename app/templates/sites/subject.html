@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block container %}
+    <div class="d-flex flex-column mr-2 mb-4">
+        <div class="d-flex flex-column mt-1">
+            <p class="text-muted small text-uppercase ml-3 mt-3 mb-1">
+                <b>{{ _('Users') }}</b>
+            </p>
+            <div class="list-group list-group-flush w-100 mx-2 mx-sm-3">
+                {% if subject.users %}
+                    {% for user in subject.users %}
+                        {% include 'components/list_item_user.html' %}
+                    {% endfor %}
+                {% else %}
+                    <div class="my-2 mb-0 list-group-item border-0 rounded">
+                        <div class="d-flex align-items-center flex-row align-middle">
+                            <i data-feather="help-circle"></i>
+                            <div class="ml-2 flex-fill">{{ _('Nothing found') }}</div>
+                        </div>
+                    </div>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,650 @@
+# English translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-09-17 10:28+0200\n"
+"PO-Revision-Date: 2018-08-18 20:00+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.6.0\n"
+
+#: app/blueprints/auth.py:37 app/blueprints/auth.py:175
+#: app/blueprints/auth.py:177 app/blueprints/auth.py:180
+msgid "Signup"
+msgstr ""
+
+#: app/blueprints/auth.py:54 app/templates/sites/auth/login.html:34
+#: app/templates/sites/auth/reset_status.html:30
+msgid "Login"
+msgstr ""
+
+#: app/blueprints/auth.py:85 app/blueprints/auth.py:89
+#: app/blueprints/auth.py:98 app/templates/sites/auth/reset.html:40
+msgid "Reset"
+msgstr ""
+
+#: app/blueprints/auth.py:189
+msgid "Wait"
+msgstr ""
+
+#: app/blueprints/auth.py:212
+msgid "Config"
+msgstr ""
+
+#: app/blueprints/index.py:51 app/templates/components/footer.html:13
+#: app/templates/components/navbar.html:33 app/templates/layout.html:12
+msgid "Dashboard"
+msgstr ""
+
+#: app/blueprints/index.py:66 app/templates/components/footer.html:14
+#: app/templates/components/navbar.html:36 app/templates/layout.html:16
+#: app/templates/sites/index.html:32
+msgid "Find Tutor"
+msgstr ""
+
+#: app/blueprints/index.py:72 app/blueprints/index.py:78
+#: app/templates/components/footer.html:15
+#: app/templates/components/navbar.html:39 app/templates/layout.html:20
+msgid "Calendar"
+msgstr ""
+
+#: app/blueprints/index.py:113
+#, python-format
+msgid "Search for %s"
+msgstr ""
+
+#: app/blueprints/user.py:53 app/templates/components/footer.html:23
+#: app/templates/components/navbar.html:47
+#: app/templates/components/navbar.html:73 app/templates/sites/index.html:63
+#: app/templates/sites/report.html:115
+#: app/templates/sites/user/settings/section_general.html:2
+msgid "Profile"
+msgstr ""
+
+#: app/blueprints/user.py:68 app/templates/components/footer.html:25
+#: app/templates/components/navbar.html:50
+#: app/templates/components/navbar.html:76
+#: app/templates/sites/auth/wait.html:31 app/templates/sites/index.html:56
+#: app/templates/sites/report.html:108
+msgid "Settings"
+msgstr ""
+
+#: app/blueprints/user.py:92
+msgid "Session Settings"
+msgstr ""
+
+#: app/blueprints/user.py:100 app/templates/sites/user/settings/sessions.html:8
+msgid "Add Session"
+msgstr ""
+
+#: app/templates/layout.html:7
+msgid "Menu"
+msgstr ""
+
+#: app/templates/components/footer.html:16
+#: app/templates/components/navbar.html:42 app/templates/layout.html:24
+msgid "Report"
+msgstr ""
+
+#: app/templates/components/footer.html:11
+msgid "Navigation"
+msgstr ""
+
+#: app/templates/components/footer.html:20
+msgid "Account"
+msgstr ""
+
+#: app/templates/components/footer.html:26
+#: app/templates/components/navbar.html:61
+#: app/templates/components/navbar.html:87
+msgid "Logout"
+msgstr ""
+
+#: app/templates/components/footer.html:30
+msgid "About"
+msgstr ""
+
+#: app/templates/components/footer.html:32
+msgid "Imprint"
+msgstr ""
+
+#: app/templates/components/footer.html:33
+#: app/templates/components/navbar.html:54
+#: app/templates/components/navbar.html:80
+msgid "Help"
+msgstr ""
+
+#: app/templates/components/footer.html:34
+#: app/templates/components/navbar.html:57
+#: app/templates/components/navbar.html:83
+#: app/templates/sites/auth/wait.html:30
+msgid "Contact"
+msgstr ""
+
+#: app/templates/components/footer.html:35
+msgid "Terms"
+msgstr ""
+
+#: app/templates/components/navbar.html:11
+msgid "(current)"
+msgstr ""
+
+#: app/templates/components/navbar.html:27
+#: app/templates/components/navbar.html:93
+msgid "Search for users or subjects"
+msgstr ""
+
+#: app/templates/components/upcoming.html:19 app/templates/sites/session.html:6
+#: app/templates/sites/user/profile.html:32
+#: app/templates/sites/user/settings/sessions.html:25
+#, python-format
+msgid "Lesson %(num)d"
+msgstr ""
+
+#: app/templates/components/upcoming.html:37
+msgid "Coming"
+msgstr ""
+
+#: app/templates/components/upcoming.html:42
+msgid "Not Coming"
+msgstr ""
+
+#: app/templates/sites/discover.html:12 app/templates/sites/search.html:32
+#: app/templates/sites/subject.html:6
+msgid "Users"
+msgstr ""
+
+#: app/templates/sites/discover.html:21 app/templates/sites/index.html:31
+#: app/templates/sites/search.html:24 app/templates/sites/search.html:43
+#: app/templates/sites/subject.html:17
+msgid "Nothing found"
+msgstr ""
+
+#: app/templates/sites/index.html:14 app/templates/sites/report.html:9
+msgid "Upcoming"
+msgstr ""
+
+#: app/templates/sites/index.html:25 app/templates/sites/report.html:20
+msgid "Show more"
+msgstr ""
+
+#: app/templates/sites/index.html:47
+msgid "Today"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:19 app/templates/sites/index.html:67
+#: app/templates/sites/report.html:119 app/templates/sites/search.html:7
+msgid "Subjects"
+msgstr ""
+
+#: app/templates/sites/index.html:71 app/templates/sites/report.html:123
+msgid "Sessions"
+msgstr ""
+
+#: app/templates/sites/index.html:75 app/templates/sites/report.html:127
+msgid "Exams"
+msgstr ""
+
+#: app/templates/sites/index.html:94
+#, python-format
+msgid "Lesson %(num)s"
+msgstr ""
+
+#: app/templates/sites/report.html:37
+msgid "Oktober"
+msgstr ""
+
+#: app/templates/sites/session.html:8
+msgid "Remove"
+msgstr ""
+
+#: app/templates/sites/session.html:14
+#: app/templates/sites/user/settings/section_general.html:25
+#: app/templates/sites/user/settings/section_general.html:48
+msgid "Status:"
+msgstr ""
+
+#: app/templates/sites/session.html:16
+msgid "Full"
+msgstr ""
+
+#: app/templates/sites/session.html:19
+msgid "Sign out from session"
+msgstr ""
+
+#: app/templates/sites/session.html:23
+msgid "Free"
+msgstr ""
+
+#: app/templates/sites/session.html:26
+msgid "Sign up for session"
+msgstr ""
+
+#: app/templates/sites/session.html:47
+msgid "(Teacher)"
+msgstr ""
+
+#: app/templates/sites/session.html:55
+msgid "(Student)"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:9
+msgid "School Configuration"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:12
+#: app/templates/sites/auth/confirm.html:33
+#: app/templates/sites/auth/reset_status.html:34
+#: app/templates/sites/auth/signup.html:20
+#: app/templates/sites/user/settings/modal_email.html:20
+#: app/templates/sites/user/settings/modal_language.html:17
+#: app/templates/sites/user/settings/modal_name.html:17
+#: app/templates/sites/user/settings/modal_role.html:22
+msgid "This did not work. Please try again later."
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:15
+#: app/templates/sites/auth/configure.html:16
+#: app/templates/sites/auth/signup.html:25
+#: app/templates/sites/auth/signup.html:26
+msgid "Name"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:20
+msgid "Subjects (separated by line break)"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:23
+#: app/templates/sites/user/settings/add_session.html:31
+msgid "Grades"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:24
+msgid "Grades (separated by line break)"
+msgstr ""
+
+#: app/templates/sites/auth/configure.html:27
+#: app/templates/sites/user/settings/modal_email.html:32
+#: app/templates/sites/user/settings/modal_language.html:33
+#: app/templates/sites/user/settings/modal_name.html:31
+#: app/templates/sites/user/settings/modal_role.html:36
+#: app/templates/sites/user/settings/section_security.html:35
+msgid "Save"
+msgstr ""
+
+#: app/templates/sites/auth/confirm.html:23
+#: app/templates/sites/auth/reset_status.html:23
+msgid "You Got Mail!"
+msgstr ""
+
+#: app/templates/sites/auth/confirm.html:25
+#: app/templates/sites/auth/reset_status.html:25
+msgid "Please check your inbox. We have sent you an email."
+msgstr ""
+
+#: app/templates/sites/auth/confirm.html:27
+msgid "All Done"
+msgstr ""
+
+#: app/templates/sites/auth/confirm.html:29
+msgid "Your email address is now confirmed."
+msgstr ""
+
+#: app/templates/sites/auth/confirm.html:31
+#: app/templates/sites/auth/reset_status.html:32
+msgid "Hm.."
+msgstr ""
+
+#: app/templates/sites/auth/confirm.html:34
+msgid "Try again"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:9
+msgid "Welcome"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:12
+msgid "Email or password incorrect"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:15
+#: app/templates/sites/auth/login.html:16
+#: app/templates/sites/auth/reset.html:25
+#: app/templates/sites/auth/reset.html:26
+#: app/templates/sites/auth/signup.html:29
+#: app/templates/sites/auth/signup.html:30
+msgid "Email address"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:19
+#: app/templates/sites/auth/login.html:20
+#: app/templates/sites/auth/signup.html:33
+#: app/templates/sites/auth/signup.html:35
+#: app/templates/sites/user/settings/section_security.html:11
+#: app/templates/sites/user/settings/section_security.html:19
+#: app/templates/sites/user/settings/section_security.html:30
+msgid "Password"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:24
+msgid "Forgot your password?"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:31
+msgid "Remember me"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:35
+msgid "No account?"
+msgstr ""
+
+#: app/templates/sites/auth/login.html:35
+#: app/templates/sites/auth/signup.html:9
+#: app/templates/sites/auth/signup.html:59
+msgid "Sign Up"
+msgstr ""
+
+#: app/templates/sites/auth/reset.html:12
+msgid "Email does not exist"
+msgstr ""
+
+#: app/templates/sites/auth/reset.html:16
+#: app/templates/sites/auth/signup.html:16
+#: app/templates/sites/user/settings/section_security.html:21
+msgid "Password must have at least 8 characters"
+msgstr ""
+
+#: app/templates/sites/auth/reset.html:20
+msgid "Your token has expired. Try again"
+msgstr ""
+
+#: app/templates/sites/auth/reset.html:31
+#: app/templates/sites/auth/reset.html:33
+#: app/templates/sites/user/settings/section_security.html:16
+msgid "New password"
+msgstr ""
+
+#: app/templates/sites/auth/reset.html:35
+#: app/templates/sites/auth/reset.html:37
+#: app/templates/sites/auth/signup.html:37
+#: app/templates/sites/auth/signup.html:39
+#: app/templates/sites/user/settings/section_security.html:27
+msgid "Repeat password"
+msgstr ""
+
+#: app/templates/sites/auth/reset_status.html:27
+msgid "Success!"
+msgstr ""
+
+#: app/templates/sites/auth/reset_status.html:29
+msgid "Your password is now reset. You can now login with your new password."
+msgstr ""
+
+#: app/templates/sites/auth/signup.html:12
+#: app/templates/sites/user/settings/modal_email.html:17
+msgid "Email already exists"
+msgstr ""
+
+#: app/templates/sites/auth/signup.html:45
+#: app/templates/sites/user/settings/modal_role.html:28
+msgid "Student"
+msgstr ""
+
+#: app/templates/sites/auth/signup.html:49
+#: app/templates/sites/user/settings/modal_role.html:29
+msgid "Teacher"
+msgstr ""
+
+#: app/templates/sites/auth/signup.html:56
+msgid "I accept the terms and conditions"
+msgstr ""
+
+#: app/templates/sites/auth/signup.html:60
+msgid "Already have an account?"
+msgstr ""
+
+#: app/templates/sites/auth/wait.html:22
+msgid "Please wait"
+msgstr ""
+
+#: app/templates/sites/auth/wait.html:24
+msgid "The maintainer is checking your registration. This might take a few days."
+msgstr ""
+
+#: app/templates/sites/auth/wait.html:26
+msgid "We are sorry"
+msgstr ""
+
+#: app/templates/sites/auth/wait.html:28
+msgid "Your registration has been denied."
+msgstr ""
+
+#: app/templates/sites/user/settings/add_session.html:5
+msgid "Weekday"
+msgstr ""
+
+#: app/templates/sites/user/settings/add_session.html:20
+msgid "Lesson"
+msgstr ""
+
+#: app/templates/sites/user/settings/add_session.html:41
+msgid "Add"
+msgstr ""
+
+#: app/templates/sites/user/settings/enum_i18n.html:1
+msgid "none"
+msgstr "None"
+
+#: app/templates/sites/user/settings/enum_i18n.html:2
+msgid "admin"
+msgstr "Admin"
+
+#: app/templates/sites/user/settings/enum_i18n.html:3
+msgid "editor"
+msgstr "Editor/Maintainer"
+
+#: app/templates/sites/user/settings/enum_i18n.html:4
+msgid "teacher"
+msgstr "Teacher"
+
+#: app/templates/sites/user/settings/enum_i18n.html:5
+msgid "student"
+msgstr "Student"
+
+#: app/templates/sites/user/settings/enum_i18n.html:7
+msgid "de_DE"
+msgstr "Deutsch"
+
+#: app/templates/sites/user/settings/enum_i18n.html:8
+msgid "en_US"
+msgstr "English (US)"
+
+#: app/templates/sites/user/settings/index.html:13
+msgid "General"
+msgstr ""
+
+#: app/templates/sites/user/settings/index.html:17
+msgid "Security"
+msgstr ""
+
+#: app/templates/sites/user/settings/index.html:21
+msgid "Privacy"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_email.html:6
+#: app/templates/sites/user/settings/section_general.html:33
+msgid "Edit Email address"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_email.html:23
+msgid "New Email address"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_email.html:24
+msgid "Email"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_email.html:31
+#: app/templates/sites/user/settings/modal_language.html:32
+#: app/templates/sites/user/settings/modal_name.html:30
+#: app/templates/sites/user/settings/modal_role.html:35
+msgid "Cancel"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_language.html:6
+#: app/templates/sites/user/settings/section_general.html:77
+msgid "Change language"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_language.html:21
+msgid "Language"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_name.html:6
+#: app/templates/sites/user/settings/section_general.html:11
+msgid "Edit name"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_name.html:21
+msgid "New name"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_role.html:6
+#: app/templates/sites/user/settings/section_general.html:61
+msgid "Change role"
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_role.html:14
+msgid ""
+"Changing your role will make your account inaccessible until your teacher"
+" accepted your new role. You will still be able to change the role while "
+"waiting, however this might also take a while."
+msgstr ""
+
+#: app/templates/sites/user/settings/modal_role.html:26
+msgid "Role"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_general.html:7
+msgid "Change or remove"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_general.html:27
+msgid "Verification required"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_general.html:29
+msgid "Verified"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_general.html:50
+msgid "Accepted"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_general.html:52
+msgid "Pending"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_general.html:54
+msgid "Rejected"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:4
+msgid "Change password"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:8
+msgid "Old password"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:41
+msgid "Last login"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:45
+msgid "Browser"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:46
+msgid "Last activity"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:53
+#, python-format
+msgid "%(browser)s on %(platform)s"
+msgstr ""
+
+#: app/templates/sites/user/settings/section_security.html:72
+msgid "Sessions will be removed automatically after 60 days of inactivity."
+msgstr ""
+
+#~ msgid "Students"
+#~ msgstr ""
+
+#~ msgid "Notifications"
+#~ msgstr ""
+
+#~ msgid "Messages"
+#~ msgstr ""
+
+#~ msgid "Privacy Policy"
+#~ msgstr ""
+
+#~ msgid "New Email"
+#~ msgstr ""
+
+#~ msgid "Hilfe"
+#~ msgstr ""
+
+#~ msgid "Kontakt"
+#~ msgstr ""
+
+#~ msgid "Impressum"
+#~ msgstr ""
+
+#~ msgid "de_DE"
+#~ msgstr "Deutsch"
+
+#~ msgid "en_US"
+#~ msgstr "English"
+
+#~ msgid "de"
+#~ msgstr ""
+
+#~ msgid "en"
+#~ msgstr ""
+
+#~ msgid "Mo"
+#~ msgstr ""
+
+#~ msgid "Tu"
+#~ msgstr ""
+
+#~ msgid "We"
+#~ msgstr ""
+
+#~ msgid "Th"
+#~ msgstr ""
+
+#~ msgid "Fr"
+#~ msgstr ""
+
+#~ msgid "Sa"
+#~ msgstr ""
+
+#~ msgid "Su"
+#~ msgstr ""
+
+#~ msgid "Lesson %(num)s"
+#~ msgstr ""
+

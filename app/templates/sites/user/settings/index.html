@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+{% endblock %}
+{% block content %}
+    {% include 'components/navbar.html' %}
+    <nav class="navbar navbar-dark shadow-sm mb-5 bg-dark" style="overflow-y: auto">
+        <div class="nav navbar-nav flex-row flex-nowrap" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link mx-3 active d-inline-block" id="general-tab" data-toggle="tab" href="#general"
+                role="tab" style="float: left; white-space: nowrap;" aria-controls="general" aria-selected="true">
+                {{ _('General') }}
+            </a>
+            <a class="nav-item nav-link mx-3 d-inline-block" id="security-tab" data-toggle="tab" href="#security" role="tab"
+                style="float: left; white-space: nowrap;" aria-controls="security" aria-selected="false">
+                {{ _('Security') }}
+            </a>
+            <a class="nav-item nav-link mx-3 d-inline-block" id="privacy-tab" data-toggle="tab" href="#privacy" role="tab"
+                style="float: left; white-space: nowrap;" aria-controls="privacy" aria-selected="false">
+                {{ _('Privacy') }}
+            </a>
+        </div>
+    </nav>
+    <div class="tab-content container d-flex flex-column justify-content-between" id="nav-tabContent">
+        {% include 'sites/user/settings/section_general.html' %}
+        {% include 'sites/user/settings/section_security.html' %}
+        {% include 'sites/user/settings/section_privacy.html' %}
+        {% include 'components/footer.html' %}
+    </div>
+{% endblock %}

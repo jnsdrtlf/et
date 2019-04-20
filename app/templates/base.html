@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="{{ g.locale }}">
+<head>
+    {% block head %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>{{ title }} - Nachhilfe</title>
+
+        <meta name="application-name" content="Nachhilfe Online">
+
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <link href="/static/css/schoen.min.css" rel="stylesheet">
+        <link href="/static/css/sites/index.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet"> 
+
+        <script src="/static/js/jquery.min.js"></script>
+        <script src="/static/js/bootstrap.bundle.js"></script>
+        <script src="/static/js/hashtab.js"></script>
+        <script src="/static/js/feather.min.js"></script>
+        <script src="/static/js/momentjs.js"></script>
+    {% endblock %}
+</head>
+{% block body %}
+    <body style="min-height: 100vh;">
+
+    {% block content %}{% endblock %}
+    
+    <script>
+        feather.replace()
+    </script>
+
+    </body>
+{% endblock %}
+</html>

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block head %}
+    {{ super() }}
+    <link href="/static/css/sites/auth.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    <body class="text-center">
+    <div class="card form-auth" style="width: 18rem;">
+        <svg class="mx-auto my-3" id="icon" viewBox="0 0 32 32" width="64px" height="64px" fill="none"
+             stroke="currentcolor"
+             stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+            {% if sent %}
+                <path d="M2 15 L2 25 30 25 30 15 26 7 6 7 Z M2 15 L10 15 C10 15 11 20 16 20 21 20 22 15 22 15 L30 15"/>
+            {% elif success %}
+                <path d="M2 20 L12 28 30 4"/>
+            {% else %}
+                <path d="M2 30 L30 2 M30 30 L2 2"/>
+            {% endif %}
+
+        </svg>
+        <div class="card-body">
+            {% if sent %}
+                <h5 class="card-title text-left float-left">{{ _('You Got Mail!') }}</h5>
+                <p class="card-text text-left float-left">
+                    {{ _('Please check your inbox. We have sent you an email.') }}</p>
+            {% elif success %}
+                <h5 class="card-title text-left float-left">{{ _('All Done') }}</h5>
+                <p class="card-text text-left float-left">
+                    {{ _('Your email address is now confirmed.') }}</p>
+            {% else %}
+                <h5 class="card-title text-left float-left">{{ _('Hm..') }}</h5>
+                <p class="card-text text-left float-left">
+                    {{ _('This did not work. Please try again later.') }}</p>
+                <a href="#" class="card-link text-left float-left">{{ _('Try again') }}</a>
+            {% endif %}
+        </div>
+        <div class="card-footer text-muted">
+            &copy; 2017-2018
+        </div>
+    </div>
+    </body>
+{% endblock %}
